@@ -19,6 +19,7 @@
   "homepage": "https://github.com/F1-Final-Project/Server-2.0#readme",
   "dependencies": {
     "bcrypt": "^3.0.7",
+    "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "db-worker": "git+https://github.com/F1-Final-Project/DB_Services",
     "dotenv": "^8.2.0",
