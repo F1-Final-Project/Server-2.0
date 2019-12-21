@@ -1,0 +1,1 @@
+const expressLoader = require('./express');const mongooseLoader = require('./mongoose');module.exports = async ({expressApp}) => {    await mongooseLoader();    console.log('Successful connection to DB!');    await expressLoader({ app: expressApp });    console.log('Express loaded!');};
