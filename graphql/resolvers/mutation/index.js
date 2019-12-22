@@ -1,1 +1,1 @@
-const graphql = require('graphql');const { GraphQLObjectType } = graphql;const UserMutation = require('./user');module.exports = new GraphQLObjectType({    name: 'Mutation',    fields: {        ...UserMutation,    }});
+const graphql = require('graphql');const { GraphQLObjectType } = graphql;const UserMutation = require('./user');const IngredientMutation = require('./ingredient');module.exports = new GraphQLObjectType({    name: 'Mutation',    fields: {        ...UserMutation,        ...IngredientMutation,    }});
