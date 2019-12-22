@@ -1,0 +1,1 @@
+const graphql = require('graphql');const {    GraphQLObjectType,    GraphQLString,    GraphQLID,} = graphql;module.exports = new GraphQLObjectType({    name: 'OrderCategory',    fields: () => ({        id: { type: GraphQLID },        title: { type: GraphQLString },    }),});
