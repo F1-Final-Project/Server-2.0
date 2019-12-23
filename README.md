@@ -1,6 +1,6 @@
 # Server-2.0 Documentation
 
-## Query
+## Query & Mutation
 * [User](#user)
 * [Auth](#auth)
 * [Ingredient](#ingredient)
@@ -22,10 +22,33 @@ firstName: String
 lastName: String
 permission: String
 ```
-### user(id: ID): User
-Returns a User instance by id.
-### userAll: [User]
-Returns all User instance.
+###  Query
+```
+user(id: ID): User
+
+userAll: [User]
+```
+### Mutation
+```
+addUser(
+  email: String!
+  password: String!
+  firstName: String!
+  lastName: String!
+  permission: String!
+): User
+
+deleteUser(id: ID): User
+
+updateUser(
+  id: ID!
+  email: String!
+  password: String!
+  firstName: String!
+  lastName: String!
+  permission: String!
+): User
+```
 
 ## Auth
 Fields:
@@ -34,9 +57,10 @@ id: String
 token: String
 permission: String
 ```
-### login(email: String!, password: String!): Auth
-Returns auth token.
-
+### Query 
+```
+login(email: String!, password: String!): Auth
+```
 
 ## Ingredient
 Fields:
@@ -47,10 +71,31 @@ restInStock: Int
 description: String
 price: Int
 ```
-### ingredient(id: ID!): Ingredient
-Returns a Ingredient instance by id.
-### ingredientAll: [Ingredient]
-Returns all Ingredient instance.
+### Query
+```
+ingredient(id: ID!): Ingredient
+
+ingredientAll: [Ingredient]
+```
+### Mutation
+```
+addIngredient(
+  title: String!
+  restInStock: Int!
+  description: String!
+  price: Float!
+): Ingredient
+
+deleteIngredient(id: ID): Ingredient
+
+updateIngredient(
+  id: ID!
+  title: String!
+  restInStock: Int!
+  description: String!
+  price: Float!
+): Ingredient
+```
 
 ## Dish
 Fields:
@@ -65,10 +110,39 @@ additionalIngredients: [Ingredient]
 price: Float
 weight: Float
 ```
-### dish(id: ID!): Dish
-Returns a Dish instance by id.
-### dishAll: [Dish]
-Returns all Dish instance.
+### Query
+```
+dish(id: ID!): Dish
+
+dishAll: [Dish]
+```
+### Mutation
+```
+addDish(
+  title: String!
+  description: String!
+  img: String!
+  category: ID!
+  ingredients: [ID]!
+  additionalIngredients: [ID]!
+  price: Float!
+  weight: Float!
+): Dish
+
+deleteDish(id: ID): Dish
+
+updateDish(
+  id: ID!
+  title: String!
+  description: String!
+  img: String!
+  category: ID!
+  ingredients: [ID]!
+  additionalIngredients: [ID]!
+  price: Float!
+  weight: Float!
+): Dish
+```
 
 ## Category
 Fields:
@@ -78,11 +152,29 @@ title: String
 description: String
 icon: String
 ```
-### category(id: ID!): Category
-Returns a Category instance by id.
-### categoryAll: [Category]
-Returns all Category instance.
+### Query
+```
+category(id: ID!): Category
 
+categoryAll: [Category]
+```
+### Mutation
+```
+addCategory(
+  title: String!
+  description: String!
+  icon: String
+): Category
+
+deleteCategory(id: ID!): Category
+
+updateCategory(
+  id: ID!
+  title: String!
+  description: String!
+  icon: String
+): Category
+```
 
 ## Invoice
 Fields:
@@ -97,10 +189,33 @@ staff: User
 paymentMethod: String
 created_at: String
 ```
-### invoice(id: ID!): Invoice
-Returns a Invoice instance by id.
-### invoiceAll: [Invoice]
-Returns all Invoice instance.
+### Query
+```
+invoice(id: ID!): Invoice
+
+invoiceAll: [Invoice]
+```
+### Mutation
+```
+addInvoice(
+  invoiceItems: [InvoiceItemInput]!
+  invoicePrice: Float!
+  staff: String!
+  paymentMethod: String!
+  created_at: String!
+): Invoice
+
+deleteInvoice(id: ID!): Invoice
+
+updateInvoice(
+  id: ID!
+  invoiceItems: [InvoiceItemInput]!
+  invoicePrice: Float!
+  staff: String!
+  paymentMethod: String!
+  created_at: String!
+): Invoice
+```
 
 ## Order
 Fields:
@@ -130,10 +245,41 @@ completed: Boolean
 created_at: String
 updated_at: String
 ```
-### order(id: ID!): Order
-Returns a Order instance by id.
-### orderAll: [Order]
-Returns all Order instance.
+### Query
+```
+order(id: ID!): Order
+
+orderAll: [Order]
+```
+### Mutation
+```
+addOrder(
+  staff: String!
+  table: Int!
+  orderItems: [OrderItemInput]!
+  newOrderItems: [OrderItemInput]!
+  orderPrice: Float!
+  onKitchen: Boolean!
+  completed: Boolean!
+  created_at: String!
+  updated_at: String!
+): Order
+
+deleteOrder(id: ID!): Order
+
+updateOrder(
+  id: ID!
+  staff: String!
+  table: Int!
+  orderItems: [OrderItemInput]!
+  newOrderItems: [OrderItemInput]!
+  orderPrice: Float!
+  onKitchen: Boolean!
+  completed: Boolean!
+  created_at: String!
+  updated_at: String!
+): Order
+```
 
 ## Order Ingredient
 Fields:
@@ -145,10 +291,33 @@ editingOrder: Boolean
 pendingOrder: Boolean
 orderHasArrived: Boolean
 ```
-### orderIngredient(id: ID!): OrderIngredient
-Returns a OrderIngredient instance by id.
-### orderIngredientAll: [OrderIngredient]
-Returns all OrderIngredient instance.
+### Query
+```
+orderIngredient(id: ID!): OrderIngredient
+
+orderIngredientAll: [OrderIngredient]
+```
+### Mutation
+```
+addOrderIngredient(
+  order: [ID]!
+  orderCategory: ID!
+  editingOrder: [Boolean]!
+  pendingOrder: [Boolean]!
+  orderHasArrived: [Boolean]!
+): OrderIngredient
+
+deleteOrderIngredient(id: ID!): OrderIngredient
+
+updateOrderIngredient(
+  id: ID!
+  order: [ID]!
+  orderCategory: ID!
+  editingOrder: [Boolean]!
+  pendingOrder: [Boolean]!
+  orderHasArrived: [Boolean]!
+): OrderIngredient
+```
 
 ## Order Category
 Fields:
@@ -156,10 +325,23 @@ Fields:
 id: ID
 title: String
 ```
-### orderCategory(id: ID!): OrderCategory
-Returns a OrderCategory instance by id.
-### orderCategoryAll: [OrderCategory]
-Returns all OrderCategory instance.
+### Query
+```
+orderCategory(id: ID!): OrderCategory
+
+orderCategoryAll: [OrderCategory]
+```
+### Mutation
+```
+addOrderCategory(title: [String]!): OrderCategory
+
+deleteOrderCategory(id: ID!): OrderCategory
+
+updateOrderCategory(
+  id: ID!
+  title: [String]!
+): OrderCategory
+```
 
 ## News
 Fields:
@@ -170,10 +352,31 @@ text: String
 img: String
 created_at: String
 ```
-### news(id: ID!): News
-Returns a News instance by id.
-### newsAll: [News]
-Returns all News instance.
+### Query
+```
+news(id: ID!): News
+
+newsAll: [News]
+```
+### Mutation
+```
+addNews(
+  title: String!
+  text: String!
+  img: String!
+  created_at: String!
+): News
+
+deleteNews(id: ID!): News
+
+updateNews(
+  id: ID!
+  title: String!
+  text: String!
+  img: String!
+  created_at: String!
+): News
+```
 
 ## Reserved
 Fields:
@@ -184,7 +387,20 @@ phone: String
 date: String
 table: Int
 ```
-### reserved(id: ID!): Reserved
-Returns a Reserved instance by id.
-### reservedAll: [Reserved]
-Returns all Reserved instance.
+### Query
+```
+reserved(id: ID!): Reserved
+
+reservedAll: [Reserved]
+```
+### Mutation
+```
+addReserved(
+  date: String!
+  table: Int!
+  client: String!
+  phone: String
+): Reserved
+
+deleteReserved(id: ID!): Reserved
+```
