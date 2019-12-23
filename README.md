@@ -5,7 +5,7 @@
 * [Auth](#auth)
 * [Ingredient](#ingredient)
 * [Dish](#dish)
-* [CategoryMenu](#category-menu)
+* [Category](#category)
 * [Invoice](#invoice)
 * [Order](#order)
 * [Order Ingredient](#order-ingredient)
@@ -15,7 +15,7 @@
 
 ## User
 Fields:
-```json
+```
 id: ID
 email: String
 firstName: String
@@ -29,7 +29,7 @@ Returns all User instance.
 
 ## Auth
 Fields:
-```json
+```
 id: String
 token: String
 permission: String
@@ -40,7 +40,7 @@ Returns auth token.
 
 ## Ingredient
 Fields:
-```json
+```
 id: ID
 title: String
 restInStock: Int
@@ -54,7 +54,7 @@ Returns all Ingredient instance.
 
 ## Dish
 Fields:
-```json
+```
 id: ID
 title: String!
 description: String
@@ -72,7 +72,7 @@ Returns all Dish instance.
 
 ## Category
 Fields:
-```json
+```
 id: ID
 title: String
 description: String
@@ -86,7 +86,7 @@ Returns all Category instance.
 
 ## Invoice
 Fields:
-```json
+```
 id: ID
 invoiceItems: [{
   title: String 
@@ -104,7 +104,7 @@ Returns all Invoice instance.
 
 ## Order
 Fields:
-```json
+```
 id: ID
 staff: User
 table: Int
@@ -137,7 +137,7 @@ Returns all Order instance.
 
 ## Order Ingredient
 Fields:
-```json
+```
 id: ID
 order: [Ingredient]
 orderCategory: OrderCategory
@@ -152,7 +152,7 @@ Returns all OrderIngredient instance.
 
 ## Order Category
 Fields:
-```json
+```
 id: ID
 title: String
 ```
@@ -163,7 +163,7 @@ Returns all OrderCategory instance.
 
 ## News
 Fields:
-```json
+```
 id: ID
 title: String
 text: String
@@ -177,7 +177,7 @@ Returns all News instance.
 
 ## Reserved
 Fields:
-```json
+```
 id: ID
 client: String
 phone: String
