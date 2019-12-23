@@ -88,7 +88,10 @@ Returns all Category instance.
 Fields:
 ```json
 id: ID
-invoiceItems: [ {title: String, price: Float} ]
+invoiceItems: [{
+  title: String 
+  price: Float
+}]
 invoicePrice: Float
 staff: User
 paymentMethod: String
