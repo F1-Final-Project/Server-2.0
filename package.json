@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index",
-    "test-server": "mocha 'test/**/*.test.js'",
-    "test": "mocha 'test/OrderCategory.test.js'"
+    "test": "mocha 'test/**/*.test.js'"
   },
   "repository": {
     "type": "git",
