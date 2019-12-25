@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon index",
     "test-server": "mocha 'test/**/*.test.js'",
-    "test" : "npm run test-server"
+    "test": "mocha 'test/OrderIngredient.test.js'"
   },
   "repository": {
     "type": "git",
