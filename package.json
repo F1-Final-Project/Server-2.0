@@ -28,12 +28,12 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.8.0",
     "nodemon": "^2.0.1",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "graphql": "^14.5.8"
   },
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-http": "^2.0.1",
-    "graphql": "^14.5.8",
     "mocha": "^6.2.2",
     "request-promise": "^4.2.5",
     "supertest": "^4.0.2"
