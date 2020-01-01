@@ -242,8 +242,6 @@ newOrderItems: [{
 orderPrice: Float
 onKitchen: Boolean
 completed: Boolean
-created_at: String
-updated_at: String
 ```
 ### Query
 ```
@@ -256,28 +254,25 @@ orderAll: [Order]
 addOrder(
   staff: String!
   table: Int!
-  orderItems: [OrderItemInput]!
-  newOrderItems: [OrderItemInput]!
-  orderPrice: Float!
-  onKitchen: Boolean!
-  completed: Boolean!
-  created_at: String!
-  updated_at: String!
+  orderItems: [OrderItemInput]
+  newOrderItems: [OrderItemInput]
+  orderPrice: Float
+  onKitchen: Boolean
+  completed: Boolean
 ): Order
 
 deleteOrder(id: ID!): Order
 
 updateOrder(
   id: ID!
-  staff: String!
-  table: Int!
-  orderItems: [OrderItemInput]!
-  newOrderItems: [OrderItemInput]!
-  orderPrice: Float!
-  onKitchen: Boolean!
-  completed: Boolean!
-  created_at: String!
-  updated_at: String!
+  staff: String
+  table: Int
+  orderItems: [OrderItemInput]
+  newOrderItems: [OrderItemInput]
+  orderPrice: Float
+  onKitchen: Boolean
+  completed: Boolean
+  created_at: String
 ): Order
 ```
 
